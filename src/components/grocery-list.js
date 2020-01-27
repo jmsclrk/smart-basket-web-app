@@ -5,8 +5,14 @@ export default function GroceryList(props) {
   if (groceries) {
     return (
       <div>
-        <h2>{groceries[0].name} - {groceries[0].amount} {groceries[0].measurement}</h2>
-        <strong>{groceries[0].price}</strong>
+        { groceries.map((grocery) => {
+          return (
+            <div key={String(grocery.id)}>
+              <h2>{grocery.name} - {grocery.amount} {grocery.measurement}</h2>
+              <strong>{grocery.price}</strong>
+            </div>
+          )
+        })}
       </div>
     )
   } else {
