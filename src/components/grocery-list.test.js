@@ -1,6 +1,6 @@
-import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import React from 'react';
+import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from 'react-dom/test-utils';
 
 import GroceryList from "./grocery-list";
 
@@ -18,9 +18,9 @@ afterEach(() => {
 
 const oneGrocery = [{
   name: "Carrots",
-  amount: 500,
+  amount: 800,
   measurement: "grams",
-  price: 1
+  price: 1.5
 }]
 
 const multiGroceries = [{
@@ -54,4 +54,11 @@ it("renders with or without a groceries array", () => {
   })
   expect(container.textContent).toContain("Carrots")
   expect(container.textContent).toContain("Beef Mince")
+})
+
+it("displays the price in pounds to two decimal places", () => {
+  act(() => {
+    render(<GroceryList groceries={oneGrocery}/>, container)
+  })
+  expect(container.querySelector("strong").textContent).toBe('£1.50')
 })

@@ -1,24 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import GroceryList from './components/grocery-list';
+
 function App() {
+
+  const tempGroceryList = [{
+    id: 1,
+    name: "Carrots",
+    amount: 800,
+    measurement: "grams",
+    price: 1.5
+  },
+  {
+    id: 2,
+    name: "Beef Mince",
+    amount: 500,
+    measurement: "grams",
+    price: 4
+  }]
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GroceryList groceries={tempGroceryList} />
     </div>
   );
 }
