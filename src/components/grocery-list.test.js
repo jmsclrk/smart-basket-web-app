@@ -20,5 +20,5 @@ it("renders with or without a groceries array", () => {
   act(() => {
     render(<GroceryList />, container);
   });
-  expect(container.textContent).toBe("No groceries available");
+  expect(container.textContent).toBe("No groceries available.");
 });
