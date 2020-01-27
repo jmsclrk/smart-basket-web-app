@@ -4,6 +4,6 @@ import App from './App';
 
 test('renders grocery list component', () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/groceries/i);
-  expect(linkElement).toBeInTheDocument();
+  const headingElement = getByText(/groceries/i);
+  expect(headingElement).toBeInTheDocument();
 });

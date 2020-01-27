@@ -1,6 +1,6 @@
-import React from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import React from "react";
+import { render, unmountComponentAtNode } from "react-dom";
+import { act } from "react-dom/test-utils";
 
 import GroceryList from "./grocery-list";
 
@@ -60,5 +60,5 @@ it("displays the price in pounds to two decimal places", () => {
   act(() => {
     render(<GroceryList groceries={oneGrocery}/>, container)
   })
-  expect(container.querySelector("strong").textContent).toBe('£1.50')
+  expect(container.querySelector("strong").textContent).toBe("£1.50")
 })
