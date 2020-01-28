@@ -2,13 +2,23 @@ import React from "react";
 
 export default function GroceryList(props) {
   let groceries = props.groceries
+
+  const selectGrocery = (grocery) => {
+    props.selectGrocery(grocery)
+  }
+
+
   if (groceries) {
     return (
       <div id="grocery-list-div">
         <h1>Groceries</h1>
         { groceries.map((grocery) => {
           return (
-            <div key={String(grocery.id)}>
+            <div
+              id={`grocery-${grocery.id}`}
+              key={String(grocery.id)}
+              onClick={() => selectGrocery(grocery)}
+            >
               <h2>{grocery.name} - {grocery.amount} {grocery.measurement}</h2>
               <strong>£{grocery.price.toFixed(2)}</strong>
             </div>

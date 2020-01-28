@@ -1,29 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 import GroceryList from './components/grocery-list';
+import GroceryDetails from './components/grocery-details';
+import { testSingleGroceryList, testMultiGroceryList } from './components/config/test-groceries';
+
 
 function App() {
+  const [selectedGrocery, setSelectedGrocery] = useState(null)
 
-  const tempGroceryList = [{
-    id: 1,
-    name: "Carrots",
-    amount: 800,
-    measurement: "grams",
-    price: 1.5
-  },
-  {
-    id: 2,
-    name: "Beef Mince",
-    amount: 500,
-    measurement: "grams",
-    price: 4
-  }]
+  const selectGrocery = (grocery) => {
+    setSelectedGrocery(grocery)
+  }
 
   return (
     <div className="App">
-      <GroceryList groceries={tempGroceryList} />
-    </div>
+      { selectedGrocery ? (
+        <GroceryDetails grocery={selectedGrocery} />
+      ) : (
+        <GroceryList
+          groceries={testMultiGroceryList}
+          selectGrocery={selectGrocery}
+        />
+
+      )}
+  </div>
   );
 }
 
