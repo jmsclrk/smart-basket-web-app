@@ -3,11 +3,13 @@ import './App.css';
 
 import GroceryList from './components/grocery-list';
 import GroceryDetails from './components/grocery-details';
+import Basket from './components/basket';
 import { testMultiGroceryList } from './components/config/test-groceries';
 
 
 function App() {
   const [selectedGrocery, setSelectedGrocery] = useState(null)
+  const [basketItems, setBasketItems] = useState([])
 
   const selectGrocery = (grocery) => {
     setSelectedGrocery(grocery)
@@ -29,8 +31,8 @@ function App() {
           groceries={testMultiGroceryList}
           selectGrocery={selectGrocery}
         />
-
       )}
+      <Basket items={basketItems}/>
   </div>
   );
 }
