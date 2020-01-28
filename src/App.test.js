@@ -17,6 +17,8 @@ it('renders grocery list component if no selected grocery', () => {
   expect(document.getElementById('grocery-list-div')).toBeInTheDocument();
 });
 
+// integration tests will be moved into serparate file
+
 Enzyme.configure({ adapter: new Adapter() })
 let wrapper
 
@@ -27,5 +29,13 @@ describe('grocery list or details', () => {
     wrapper.find(GroceryList).dive().find('#grocery-1').props().onClick()
     expect(wrapper.find(GroceryList).length).toBe(0)
     expect(wrapper.find(GroceryDetails).length).toBe(1)
+  })
+
+  it('returns to grocery list if back button hit', () => {
+    expect(wrapper.find(GroceryList).length).toBe(0)
+    expect(wrapper.find(GroceryDetails).length).toBe(1)
+    wrapper.find(GroceryDetails).dive().find('a').props().onClick()
+    expect(wrapper.find(GroceryList).length).toBe(1)
+    expect(wrapper.find(GroceryDetails).length).toBe(0)
   })
 })

@@ -13,10 +13,17 @@ function App() {
     setSelectedGrocery(grocery)
   }
 
+  const deselectGrocery = () => {
+    setSelectedGrocery(null)
+  }
+
   return (
     <div className="App">
       { selectedGrocery ? (
-        <GroceryDetails grocery={selectedGrocery} />
+        <GroceryDetails
+          grocery={selectedGrocery}
+          deselectGrocery={deselectGrocery}
+        />
       ) : (
         <GroceryList
           groceries={testMultiGroceryList}
