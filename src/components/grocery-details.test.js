@@ -29,6 +29,6 @@ it("renders with a grocery item", () => {
   act(() => {
     render(<GroceryDetails grocery={grocery} />, container)
   })
-  expect(container.querySelector("h3").textContent).toBe("Carrots, 800 grams")
+  expect(container.querySelector("h3").textContent).toBe("Carrots (800 grams)")
   expect(container.querySelector("p").textContent).toBe(grocery.description)
 })

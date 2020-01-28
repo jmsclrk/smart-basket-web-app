@@ -8,9 +8,9 @@ export default function GroceryDetails(props) {
 
   return (
     <React.Fragment>
-      <a onClick={deselectGrocery}>Back</a>
+      <a onClick={deselectGrocery} href=' '>Back</a>
       <div id="grocery-details-div">
-        <h3>{props.grocery.name}, {props.grocery.amount} {props.grocery.measurement}</h3>
+        <h3>{props.grocery.name} ({props.grocery.amount} {props.grocery.measurement})</h3>
         <p>{props.grocery.description}</p>
       </div>
     </React.Fragment>
