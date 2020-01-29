@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react'
+import PropTypes from 'prop-types'
 
-export default function GroceryList(props) {
+const GroceryList = (props) => {
   let groceries = props.groceries
 
   const selectGrocery = (grocery) => {
@@ -31,3 +32,16 @@ export default function GroceryList(props) {
     return <h1 data-test="no-groceries-warning">No groceries currently available.</h1>;
   }
 }
+
+GroceryList.propTypes = {
+  groceries: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    amount: PropTypes.number,
+    measurement: PropTypes.string,
+    price: PropTypes.number,
+    description: PropTypes.string
+  }))
+}
+
+export default GroceryList
