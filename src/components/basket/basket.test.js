@@ -2,8 +2,8 @@ import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
-import Basket from "./basket";
-import { testSingleGroceryList, testMultiGroceryList } from './config/test-groceries';
+import Basket from ".";
+import { testSingleGroceryList, testMultiGroceryList } from './../config/test-groceries';
 
 
 let container = null

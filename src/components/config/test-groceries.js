@@ -22,3 +22,13 @@ export const testMultiGroceryList = [{
   price: 4,
   description: "Ground beef with 10% fat content, high in protein and iron."
 }]
+
+
+export const testSingleGrocery = {
+  id: 1,
+  name: "Carrots",
+  amount: 800,
+  measurement: "grams",
+  price: 1.5,
+  description: "Orange root vegetable high in beta carotene, fiber and vitamin K"
+}

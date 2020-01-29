@@ -2,8 +2,8 @@ import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
-import GroceryList from "./grocery-list";
-import { testSingleGroceryList, testMultiGroceryList } from './config/test-groceries';
+import GroceryList from ".";
+import { testSingleGroceryList, testMultiGroceryList } from './../config/test-groceries';
 
 let container = null
 beforeEach(() => {

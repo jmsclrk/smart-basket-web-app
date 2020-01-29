@@ -2,7 +2,8 @@ import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
-import GroceryDetails from "./grocery-details";
+import GroceryDetails from '.';
+import { testSingleGrocery } from './../config/test-groceries'
 
 let container = null
 beforeEach(() => {
@@ -16,19 +17,12 @@ afterEach(() => {
   container = null
 })
 
-const grocery = {
-  id: 1,
-  name: "Carrots",
-  amount: 800,
-  measurement: "grams",
-  price: 1.5,
-  description: "Orange root vegetable high in beta carotene, fiber and vitamin K"
-}
+
 
 it("renders with a grocery item", () => {
   act(() => {
-    render(<GroceryDetails grocery={grocery} />, container)
+    render(<GroceryDetails grocery={testSingleGrocery} />, container)
   })
   expect(container.querySelector("h3").textContent).toBe("Carrots (800 grams)")
-  expect(container.querySelector("p").textContent).toBe(grocery.description)
+  expect(container.querySelector("p").textContent).toBe(testSingleGrocery.description)
 })
