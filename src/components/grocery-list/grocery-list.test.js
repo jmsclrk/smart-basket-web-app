@@ -54,7 +54,7 @@ describe('GroceryList Component', () => {
     })
   })
 
-  describe('Has a single grocery in list as grocery prop', () => {
+  describe('Has a multiple groceries in list as grocery prop', () => {
 
     let component
     beforeEach(() => {
