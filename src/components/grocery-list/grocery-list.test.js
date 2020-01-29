@@ -1,43 +1,75 @@
-import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import React from 'react'
+import { shallow } from 'enzyme'
 
-import GroceryList from ".";
-import { testSingleGroceryList, testMultiGroceryList } from './../config/test-groceries';
+import GroceryList from '.'
+import { testSingleGroceryList, testMultiGroceryList } from './../config/test-groceries'
+import { findByDataTestAttr } from './../config/test-utils'
 
-let container = null
-beforeEach(() => {
-  container = document.createElement("div")
-  document.body.appendChild(container)
-})
+const setUp = (props={}) => {
+  const component = shallow(<GroceryList {...props} />)
+  return component
+}
 
-afterEach(() => {
-  unmountComponentAtNode(container)
-  container.remove()
-  container = null
-})
 
-it("renders with or without a groceries array", () => {
-  act(() => {
-    render(<GroceryList />, container)
+describe('GroceryList Component', () => {
+
+  describe('Has no props', () => {
+
+    let component
+    beforeEach(() => {
+      component = setUp()
+    })
+
+    it('Should not render the groceries list container', () => {
+      const wrapper = findByDataTestAttr(component, 'grocery-list-container')
+      expect(wrapper.length).toBe(0)
+    })
+
+    it('Should render a h2 with a no groceries message', () => {
+      const h2 = findByDataTestAttr(component, 'no-groceries-warning')
+      expect(h2.length).toBe(1)
+      expect(h2.text()).toBe("No groceries currently available.")
+    })
   })
-  expect(container.textContent).toBe("No groceries available.")
 
-  act(() => {
-    render(<GroceryList groceries={testSingleGroceryList}/>, container)
-  })
-  expect(container.textContent).toContain("Carrots")
+  describe('Has a single grocery in list as grocery prop', () => {
 
-  act(() => {
-    render(<GroceryList groceries={testMultiGroceryList}/>, container)
-  })
-  expect(container.textContent).toContain("Carrots")
-  expect(container.textContent).toContain("Beef Mince")
-})
+    let component
+    beforeEach(() => {
+      component = setUp({groceries: testSingleGroceryList})
+    })
 
-it("displays the price in pounds to two decimal places", () => {
-  act(() => {
-    render(<GroceryList groceries={testSingleGroceryList}/>, container)
+    it('Should render the groceries list container', () => {
+      const wrapper = findByDataTestAttr(component, 'grocery-list-container')
+      expect(wrapper.length).toBe(1)
+    })
+
+    it('Should render one grocery tile', () => {
+      const tile = findByDataTestAttr(component, 'grocery-preview-tile')
+      expect(tile.length).toBe(1)
+    })
+
+    it('Should render preview price with a £ sign and to 2 decimals', () => {
+      const price = findByDataTestAttr(component, 'g-prev-price')
+      expect(price.text()).toBe('£1.50')
+    })
   })
-  expect(container.querySelector("strong").textContent).toBe("£1.50")
+
+  describe('Has a single grocery in list as grocery prop', () => {
+
+    let component
+    beforeEach(() => {
+      component = setUp({groceries: testMultiGroceryList})
+    })
+
+    it('Should render the groceries list container', () => {
+      const wrapper = findByDataTestAttr(component, 'grocery-list-container')
+      expect(wrapper.length).toBe(1)
+    })
+
+    it('Should render two grocery tiles', () => {
+      const tile = findByDataTestAttr(component, 'grocery-preview-tile')
+      expect(tile.length).toBe(2)
+    })
+  })
 })
