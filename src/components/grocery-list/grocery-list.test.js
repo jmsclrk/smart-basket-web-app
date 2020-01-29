@@ -24,10 +24,10 @@ describe('GroceryList Component', () => {
       expect(wrapper.length).toBe(0)
     })
 
-    it('Should render a h2 with a no groceries message', () => {
-      const h2 = findByDataTestAttr(component, 'no-groceries-warning')
-      expect(h2.length).toBe(1)
-      expect(h2.text()).toBe("No groceries currently available.")
+    it('Should render a title message with a no groceries message', () => {
+      const title = findByDataTestAttr(component, 'no-groceries-warning')
+      expect(title.length).toBe(1)
+      expect(title.text()).toBe("No groceries currently available.")
     })
   })
 

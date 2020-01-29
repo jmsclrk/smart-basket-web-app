@@ -1,18 +1,34 @@
 import React from "react";
+import PropTypes from 'prop-types'
 
-export default function GroceryDetails(props) {
+const GroceryDetails = (props) => {
 
   const deselectGrocery = () => {
     props.deselectGrocery()
   }
 
+  if(!props.grocery) {
+    return null
+  }
+
   return (
-    <React.Fragment>
-      <a onClick={deselectGrocery} href=' '>Back</a>
-      <div id="grocery-details-div">
-        <h3>{props.grocery.name} ({props.grocery.amount} {props.grocery.measurement})</h3>
-        <p>{props.grocery.description}</p>
+    <div data-test="grocery-details-container">
+      <a data-test="gd-back-button" onClick={deselectGrocery} href=' '>Back</a>
+      <div id="grocery-details">
+        <h3 data-test="grocery-title">{props.grocery.name} ({props.grocery.amount} {props.grocery.measurement})</h3>
+        <p data-test="grocery-desc">{props.grocery.description}</p>
       </div>
-    </React.Fragment>
+    </div>
   )
 }
+
+GroceryDetails.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  amount: PropTypes.number,
+  measurement: PropTypes.string,
+  price: PropTypes.number,
+  description: PropTypes.string
+}
+
+export default GroceryDetails
