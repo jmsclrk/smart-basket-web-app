@@ -2,6 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import GroceryList from '.'
+import GroceryPreviewTile from './../grocery-preview-tile'
 import { testSingleGroceryList, testMultiGroceryList } from './../config/test-groceries'
 import { findByDataTestAttr } from './../config/test-utils'
 import { testStore } from './../../../Utils'
@@ -46,13 +47,8 @@ describe('GroceryList Component', () => {
     })
 
     it('Should render one grocery tile', () => {
-      const tile = findByDataTestAttr(component, 'grocery-preview-tile')
-      expect(tile.length).toBe(1)
-    })
-
-    it('Should render preview price with a £ sign and to 2 decimals', () => {
-      const price = findByDataTestAttr(component, 'g-prev-price')
-      expect(price.text()).toBe('£1.50')
+      const tiles = component.find(GroceryPreviewTile)
+      expect(tiles.length).toBe(1)
     })
   })
 
@@ -69,8 +65,8 @@ describe('GroceryList Component', () => {
     })
 
     it('Should render two grocery tiles', () => {
-      const tile = findByDataTestAttr(component, 'grocery-preview-tile')
-      expect(tile.length).toBe(2)
+      const tiles = component.find(GroceryPreviewTile)
+      expect(tiles.length).toBe(2)
     })
   })
 })

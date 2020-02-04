@@ -10,7 +10,7 @@ html, body, #root {
   font-size: 18px;
   line-height: 22px;
   color: #121212;
-  background: #707174;
+  background: lightgrey;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -22,11 +22,13 @@ html, body, #root {
 #main-app-container {
   padding: 20px 0;
   height: 100%;
-  margin: 2 0;
 }
 
 .justify-content-md-center {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+.container {
+  margin: 10
 }

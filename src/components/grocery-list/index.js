@@ -1,5 +1,6 @@
 import React from 'react'
 import './styles.scss'
+import GroceryPreviewTile from './../grocery-preview-tile'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { selectGrocery } from './../../actions'
@@ -15,23 +16,19 @@ const GroceryList = (props) => {
     return (
       <div data-test="grocery-list-container" id="grocery-list-component">
         <h4 className="grocery-title">ALL GROCERIES</h4>
-        { props.groceriesList.map((grocery) => {
+        { props.groceriesList.map((grocery, index) => {
           return (
-            <div
-              data-test="grocery-preview-tile"
-              id={`grocery-${grocery.id}`}
-              key={String(grocery.id)}
-              onClick={() => selectGrocery(grocery)}
-            >
-              <h2>{grocery.name} - {grocery.amount} {grocery.measurement}</h2>
-              <strong data-test="g-prev-price">£{grocery.price.toFixed(2)}</strong>
-            </div>
+            <GroceryPreviewTile key={index} grocery={grocery} />
           )
         })}
       </div>
     )
   } else {
-    return <h1 data-test="no-groceries-warning">No groceries currently available.</h1>;
+    return (
+      <div id="grocery-list-component">
+        <h1 data-test="no-groceries-warning">No groceries currently available.</h1>
+      </div>
+    )
   }
 }
 

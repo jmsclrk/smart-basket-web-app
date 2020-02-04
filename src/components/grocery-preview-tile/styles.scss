@@ -1,0 +1,41 @@
+.gpt-container {
+  border: solid 1px grey;
+  width: 160px;
+  height: 250px;
+  display: inline-block;
+  padding: 10px;
+  margin: 10px;
+}
+
+.gpt-n {
+  font-size: 20px;
+  margin-bottom: 1px;
+  color: black;
+  text-transform: uppercase;
+}
+
+.gpt-a {
+  font-size: 15px;
+  color: grey;
+}
+
+.gpt-img {
+  margin: 15px 0;
+  border: solid 1px grey;
+  height: 120px;
+}
+
+.gpt-p {
+  font-size: 15px;
+  color: black;
+  font-weight: bold;
+  text-align: left;
+  align-items: left;
+  padding-right: 10px;
+}
+
+.gpt-add-basket {
+  padding-left: 10px;
+  font-size: 30px;
+  position: absolute;
+}
