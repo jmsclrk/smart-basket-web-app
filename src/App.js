@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import Header from './components/header'
 import GroceryList from './components/grocery-list';
 import GroceryDetails from './components/grocery-details';
 import Basket from './components/basket';
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <Container>
         <Row className="justify-content-md-center">
           <Col sm={8}>
