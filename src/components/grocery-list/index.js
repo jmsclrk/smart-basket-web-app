@@ -35,17 +35,6 @@ const GroceryList = (props) => {
   }
 }
 
-GroceryList.propTypes = {
-  groceries: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    amount: PropTypes.number,
-    measurement: PropTypes.string,
-    price: PropTypes.number,
-    description: PropTypes.string
-  }))
-}
-
 const mapStateToProps = state => {
   return {
     groceriesList: state.groceriesList

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 
 import GroceryList from '.'
 import { testSingleGroceryList, testMultiGroceryList } from './../config/test-groceries'
-import { findByDataTestAttr, checkProps } from './../config/test-utils'
+import { findByDataTestAttr } from './../config/test-utils'
 import { testStore } from './../../../Utils'
 
 const setUp = (initialState={}) => {
@@ -71,13 +71,6 @@ describe('GroceryList Component', () => {
     it('Should render two grocery tiles', () => {
       const tile = findByDataTestAttr(component, 'grocery-preview-tile')
       expect(tile.length).toBe(2)
-    })
-  })
-
-  describe('Checking Prop Types', () => {
-    it('Should not throw a warning', () => {
-      const propsErr = checkProps(GroceryList, testMultiGroceryList)
-      expect(propsErr).toBeUndefined()
     })
   })
 })
