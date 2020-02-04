@@ -43,4 +43,11 @@ describe('GroceryPreviewTile Component', () => {
       expect(price.text()).toBe('£1.50')
     })
   })
+
+  describe('Checking Prop Types', () => {
+    it('Should not throw a warning', () => {
+      const propsErr = checkProps(GroceryPreviewTile, testSingleGrocery)
+      expect(propsErr).toBeUndefined()
+    })
+  })
 })

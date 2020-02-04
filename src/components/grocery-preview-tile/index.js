@@ -1,11 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './styles.scss'
 
 const GroceryPreviewTile = (props) => {
   const g = props.grocery
 
   return(
-    <div data-test="gpt-component" className="gpt-container">
+    <div data-test="gpt-component" className="gpt-container" onClick={() => props.selectGrocery(g)}>
     <h5 className="gpt-n" data-test="gpt-name">{g.name}</h5>
     <span className="gpt-a" data-test="gpt-amount">{g.amount} {g.measurement}</span><br/>
     <div className="gpt-img">
@@ -14,7 +15,15 @@ const GroceryPreviewTile = (props) => {
     <span className="gpt-add-basket">+</span>
     </div>
   )
+}
 
+GroceryPreviewTile.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  amount: PropTypes.number,
+  measurement: PropTypes.string,
+  price: PropTypes.number,
+  description: PropTypes.string
 }
 
 export default GroceryPreviewTile
