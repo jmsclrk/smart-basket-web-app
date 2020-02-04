@@ -10,7 +10,7 @@ import Header from './components/header'
 import GroceryList from './components/grocery-list';
 import GroceryDetails from './components/grocery-details';
 import Basket from './components/basket';
-import { updateGroceries } from './actions'
+import { updateGroceries, deselectGrocery } from './actions'
 
 
 function App(props) {
@@ -27,6 +27,7 @@ function App(props) {
             { props.selectedGrocery ? (
               <GroceryDetails
                 grocery={props.selectedGrocery}
+                deselectGrocery={props.deselectGrocery}
               />
             ) : (
               <GroceryList />
@@ -48,4 +49,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { updateGroceries })(App);
+export default connect(mapStateToProps, { updateGroceries, deselectGrocery })(App);

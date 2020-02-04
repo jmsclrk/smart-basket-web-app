@@ -15,4 +15,12 @@ describe('selectedGrocery Reducer', () => {
     })
     expect(newState).toEqual(testSingleGrocery)
   })
+
+  it('Should return null state if receiving deselectGrocery type', () => {
+    const newState = selectedGroceryReducer(testSingleGrocery, {
+      type: 'deselectGrocery',
+      payload: testSingleGrocery
+    })
+    expect(newState).toEqual(null)
+  })
 })
