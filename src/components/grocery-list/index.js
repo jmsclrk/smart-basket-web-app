@@ -1,20 +1,21 @@
 import React from 'react'
 import './styles.scss'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { selectGrocery } from './../../actions'
 
 const GroceryList = (props) => {
-  let groceries = props.groceries
 
   const selectGrocery = (grocery) => {
     props.selectGrocery(grocery)
   }
 
 
-  if (groceries) {
+  if (props.groceriesList.length > 0) {
     return (
       <div data-test="grocery-list-container" id="grocery-list-component">
         <h4 className="grocery-title">ALL GROCERIES</h4>
-        { groceries.map((grocery) => {
+        { props.groceriesList.map((grocery) => {
           return (
             <div
               data-test="grocery-preview-tile"
@@ -45,4 +46,10 @@ GroceryList.propTypes = {
   }))
 }
 
-export default GroceryList
+const mapStateToProps = state => {
+  return {
+    groceriesList: state.groceriesList
+  }
+}
+
+export default connect(mapStateToProps, {selectGrocery})(GroceryList)

@@ -4,9 +4,11 @@ import { shallow } from 'enzyme'
 import GroceryList from '.'
 import { testSingleGroceryList, testMultiGroceryList } from './../config/test-groceries'
 import { findByDataTestAttr, checkProps } from './../config/test-utils'
+import { testStore } from './../../../Utils'
 
-const setUp = (props={}) => {
-  const component = shallow(<GroceryList {...props} />)
+const setUp = (initialState={}) => {
+  const store = testStore(initialState)
+  const component = shallow(<GroceryList store={store} />).childAt(0).dive()
   return component
 }
 
@@ -35,7 +37,7 @@ describe('GroceryList Component', () => {
 
     let component
     beforeEach(() => {
-      component = setUp({groceries: testSingleGroceryList})
+      component = setUp({groceriesList: testSingleGroceryList})
     })
 
     it('Should render the groceries list container', () => {
@@ -58,7 +60,7 @@ describe('GroceryList Component', () => {
 
     let component
     beforeEach(() => {
-      component = setUp({groceries: testMultiGroceryList})
+      component = setUp({groceriesList: testMultiGroceryList})
     })
 
     it('Should render the groceries list container', () => {

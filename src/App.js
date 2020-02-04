@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import './App.scss';
+import { connect } from 'react-redux'
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -9,20 +10,13 @@ import Header from './components/header'
 import GroceryList from './components/grocery-list';
 import GroceryDetails from './components/grocery-details';
 import Basket from './components/basket';
-import { testMultiGroceryList } from './components/config/test-groceries';
+import { updateGroceries } from './actions'
 
 
-function App() {
-  const [selectedGrocery, setSelectedGrocery] = useState(null)
-  const [basketItems, setBasketItems] = useState([])
+function App(props) {
 
-  const selectGrocery = (grocery) => {
-    setSelectedGrocery(grocery)
-  }
-
-  const deselectGrocery = () => {
-    setSelectedGrocery(null)
-  }
+  // eslint-disable-next-line
+  useEffect(() => { props.updateGroceries() },[])
 
   return (
     <div className="App">
@@ -30,20 +24,16 @@ function App() {
       <Container id="main-app-container">
         <Row className="justify-content-md-center">
           <Col sm={8}>
-            { selectedGrocery ? (
+            { props.selectedGrocery ? (
               <GroceryDetails
-                grocery={selectedGrocery}
-                deselectGrocery={deselectGrocery}
+                grocery={props.selectedGrocery}
               />
             ) : (
-              <GroceryList
-                groceries={testMultiGroceryList}
-                selectGrocery={selectGrocery}
-              />
+              <GroceryList />
             )}
           </Col>
           <Col sm={4}>
-            <Basket items={basketItems}/>
+            <Basket items={[]}/>
           </Col>
         </Row>
       </Container>
@@ -51,4 +41,11 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    groceriesList: state.groceriesList,
+    selectedGrocery: state.selectedGrocery
+  }
+}
+
+export default connect(mapStateToProps, { updateGroceries })(App);
