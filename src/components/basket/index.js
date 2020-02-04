@@ -1,9 +1,10 @@
 import React from 'react';
+import './styles.scss'
 
 export default function Basket(props) {
   return (
-    <div id="basket-div">
-      <h1>Basket</h1>
+    <div id="basket-component">
+      <h4 className="basket-title">BASKET</h4>
       { props.items.length < 1 ? (
         <h3>Nothing added yet.</h3>
       ) : (

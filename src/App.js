@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Container>
+      <Container id="main-app-container">
         <Row className="justify-content-md-center">
           <Col sm={8}>
             { selectedGrocery ? (

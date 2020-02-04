@@ -1,4 +1,5 @@
 import React from 'react'
+import './styles.scss'
 import PropTypes from 'prop-types'
 
 const GroceryList = (props) => {
@@ -11,8 +12,8 @@ const GroceryList = (props) => {
 
   if (groceries) {
     return (
-      <div data-test="grocery-list-container">
-        <h1>Groceries</h1>
+      <div data-test="grocery-list-container" id="grocery-list-component">
+        <h4 className="grocery-title">ALL GROCERIES</h4>
         { groceries.map((grocery) => {
           return (
             <div

@@ -1,3 +1,32 @@
 .App {
   text-align: center;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+html, body, #root {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  color: #121212;
+  background: #707174;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  height: -webkit-calc(100% - 30px);
+  height: -moz-calc(100% - 30px);
+  height: calc(100% - 30px);
+}
+
+#main-app-container {
+  padding: 20px 0;
+  height: 100%;
+  margin: 2 0;
+}
+
+.justify-content-md-center {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
