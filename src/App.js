@@ -34,7 +34,7 @@ function App(props) {
             )}
           </Col>
           <Col sm={4}>
-            <Basket items={[]}/>
+            <Basket />
           </Col>
         </Row>
       </Container>
