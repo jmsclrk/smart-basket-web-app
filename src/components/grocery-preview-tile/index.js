@@ -18,12 +18,14 @@ const GroceryPreviewTile = (props) => {
 }
 
 GroceryPreviewTile.propTypes = {
-  id: PropTypes.number,
-  name: PropTypes.string,
-  amount: PropTypes.number,
-  measurement: PropTypes.string,
-  price: PropTypes.number,
-  description: PropTypes.string
+  grocery: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    amount: PropTypes.number,
+    measurement: PropTypes.string,
+    price: PropTypes.number,
+    description: PropTypes.string
+  })
 }
 
 export default GroceryPreviewTile
