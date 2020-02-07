@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import QuantityController from './../quantity-controller'
 import { testSingleGroceryBasket, testDuplicateItemGroceryBasket } from './../config/test-groceries'
 import { findByDataTestAttr, checkProps } from './../config/test-utils'
 import BasketItem from '.'
@@ -36,5 +37,11 @@ describe('BasketItem Component', () => {
       expect(info.length).toBe(1)
       expect(info.text()).toBe('2 x Carrots')
     })
+
+    it('Renders one QuantityController component', () => {
+      const controller = component.find(QuantityController)
+      expect(controller.length).toBe(1)
+    })
+
   })
 })

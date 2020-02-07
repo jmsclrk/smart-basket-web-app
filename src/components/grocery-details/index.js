@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types'
+import QuantityController from './../quantity-controller'
 
 const GroceryDetails = (props) => {
 
@@ -14,6 +15,7 @@ const GroceryDetails = (props) => {
         <h3 data-test="grocery-title">{props.grocery.name} ({props.grocery.amount} {props.grocery.measurement})</h3>
         <p data-test="grocery-desc">{props.grocery.description}</p>
       </div>
+      <QuantityController grocery={props.grocery} />
     </div>
   )
 }

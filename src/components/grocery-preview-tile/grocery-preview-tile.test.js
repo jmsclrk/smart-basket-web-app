@@ -2,6 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import GroceryPreviewTile from '.'
+import QuantityController from './../quantity-controller'
 import { testSingleGrocery } from './../config/test-groceries'
 import { findByDataTestAttr, checkProps } from './../config/test-utils'
 
@@ -41,6 +42,11 @@ describe('GroceryPreviewTile Component', () => {
       const price = findByDataTestAttr(wrapper, 'gpt-price')
       expect(price.length).toBe(1)
       expect(price.text()).toBe('£1.50')
+    })
+
+    it('Renders one QuantityController component', () => {
+      const controller = wrapper.find(QuantityController)
+      expect(controller.length).toBe(1)
     })
   })
 

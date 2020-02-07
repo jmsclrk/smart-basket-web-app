@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-
+import QuantityController from './../quantity-controller'
 import GroceryDetails from '.'
 import { testSingleGrocery } from './../config/test-groceries'
 import { findByDataTestAttr, checkProps } from './../config/test-utils'
@@ -36,7 +36,10 @@ describe('GroceryDetails Component', () => {
       expect(desc.text()).toBe(testSingleGrocery.description)
     })
 
-    // test for anchor needed
+    it('Renders one QuantityController component', () => {
+      const controller = component.find(QuantityController)
+      expect(controller.length).toBe(1)
+    })
   })
 
   describe('Has no props', () => {

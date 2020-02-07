@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import QuantityController from './../quantity-controller'
 import './styles.scss'
 
 const GroceryPreviewTile = (props) => {
@@ -13,6 +14,7 @@ const GroceryPreviewTile = (props) => {
     </div>
     <span className="gpt-p" data-test="gpt-price">£{g.price.toFixed(2)}</span>
     <span className="gpt-add-basket">+</span>
+    <QuantityController grocery={g} />
     </div>
   )
 }
