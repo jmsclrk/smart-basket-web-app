@@ -26,3 +26,10 @@ export const addItemToBasket = (grocery) => async (dispatch) => {
     payload: grocery
   })
 }
+
+export const removeItemFromBasket = (grocery) => async (dispatch) => {
+  dispatch({
+    type: 'removeItemFromBasket',
+    payload: grocery
+  })
+}

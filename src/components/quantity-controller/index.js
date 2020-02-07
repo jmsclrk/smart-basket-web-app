@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.scss'
 import { connect } from 'react-redux'
-import { addItemToBasket } from './../../actions'
+import { addItemToBasket, removeItemFromBasket } from './../../actions'
 
 const QuantityController = (props) => {
 
@@ -11,7 +11,7 @@ const QuantityController = (props) => {
     <div data-test="qc-component">
       {inBasket ? (
         <React.Fragment>
-          <div data-test="qc-decrement">
+          <div data-test="qc-decrement" onClick={() => {props.removeItemFromBasket(props.grocery)}}>
           -
           </div>
           <div data-test="qc-quantity">
@@ -35,4 +35,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {addItemToBasket})(QuantityController)
+export default connect(mapStateToProps, {addItemToBasket, removeItemFromBasket})(QuantityController)
