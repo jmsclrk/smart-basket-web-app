@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles.scss'
 import { connect } from 'react-redux'
+import { addItemToBasket } from './../../actions'
 
 const QuantityController = (props) => {
 
@@ -21,7 +22,7 @@ const QuantityController = (props) => {
         <div>
         </div>
       )}
-      <div data-test="qc-increment">
+      <div data-test="qc-increment" onClick={() => {props.addItemToBasket(props.grocery)}}>
       +
       </div>
     </div>
@@ -34,4 +35,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(QuantityController)
+export default connect(mapStateToProps, {addItemToBasket})(QuantityController)
