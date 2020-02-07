@@ -1,0 +1,35 @@
+#qc-container-prevtile {
+  width: 70px;
+  display: inline-block;
+}
+
+.qc-increment {
+  display: inline-block;
+  width: 30%;
+}
+
+.qc-quantity {
+  display: inline-block;
+  width: 40%;
+  font-size: 17px
+}
+
+.qc-decrement {
+  display: inline-block;
+  width: 30%;
+  font-size: 20px;
+}
+
+.absent-basket {
+  display: inline-block;
+  width: 70%;
+  height: 100%;
+}
+
+#qc-container-bskt {
+  text-align: center;
+  width: 70px;
+  display: block;
+  float: left;
+  padding-left: 5px;
+}

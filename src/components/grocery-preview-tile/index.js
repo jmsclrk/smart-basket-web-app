@@ -7,14 +7,13 @@ const GroceryPreviewTile = (props) => {
   const g = props.grocery
 
   return(
-    <div data-test="gpt-component" className="gpt-container" onClick={() => props.selectGrocery(g)}>
+    <div data-test="gpt-component" className="gpt-container">
     <h5 className="gpt-n" data-test="gpt-name">{g.name}</h5>
     <span className="gpt-a" data-test="gpt-amount">{g.amount} {g.measurement}</span><br/>
-    <div className="gpt-img">
+    <div className="gpt-img" onClick={() => props.selectGrocery(g)}>
     </div>
     <span className="gpt-p" data-test="gpt-price">£{g.price.toFixed(2)}</span>
-    <span className="gpt-add-basket">+</span>
-    <QuantityController grocery={g} />
+    <QuantityController loc="prevtile" grocery={g} />
     </div>
   )
 }

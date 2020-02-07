@@ -8,9 +8,12 @@ const BasketItem = (props) => {
   const grcy = props.basketItem.grocery
 
   return (
-    <div data-test="bi-component">
-      <span data-test="bi-info">{qty} x {grcy.name}</span>
-      <QuantityController grocery={grcy} />
+    <div id="bi-container" data-test="bi-component">
+      <QuantityController loc="bskt" grocery={grcy} />
+      <span className="bi-info" data-test="bi-info">{grcy.name}</span>
+      <span className="bi-price" data-test="bi-price">£{(qty*grcy.price).toFixed(2)}</span>
+      <br/>
+      <span className="bi-amount" data-test="bi-amount">{grcy.amount} {grcy.measurement}</span>
     </div>
   )
 }

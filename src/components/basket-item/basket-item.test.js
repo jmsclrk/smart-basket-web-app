@@ -10,10 +10,9 @@ const setUp = (prps={}) => {
   return component
 }
 
-
 describe('BasketItem Component', () => {
 
-  describe('Should render without errors', () => {
+  describe('BasketItem has quantity of one', () => {
 
     let component
     beforeEach(() => {
@@ -28,14 +27,7 @@ describe('BasketItem Component', () => {
     it('Should render the basket item information', () => {
       const info = findByDataTestAttr(component, 'bi-info')
       expect(info.length).toBe(1)
-      expect(info.text()).toBe('1 x Carrots')
-    })
-
-    it('Should correctly render if two of one grocery', () => {
-      component = setUp({basketItem: testDuplicateItemGroceryBasket[0]})
-      const info = findByDataTestAttr(component, 'bi-info')
-      expect(info.length).toBe(1)
-      expect(info.text()).toBe('2 x Carrots')
+      expect(info.text()).toBe('Carrots')
     })
 
     it('Renders one QuantityController component', () => {
@@ -43,5 +35,24 @@ describe('BasketItem Component', () => {
       expect(controller.length).toBe(1)
     })
 
+    it('Renders product amount information', () => {
+      const amount = findByDataTestAttr(component, 'bi-amount')
+      expect(amount.length).toBe(1)
+      expect(amount.text()).toBe('800 grams')
+    })
+  })
+
+  describe('BasketItem has quantity of two', () => {
+
+    let component
+    beforeEach(() => {
+      component = setUp({basketItem: testDuplicateItemGroceryBasket[0]})
+    })
+
+    it('Renders calculated price information to two decimal places', () => {
+      const price = findByDataTestAttr(component, 'bi-price')
+      expect(price.length).toBe(1)
+      expect(price.text()).toBe('£3.00')
+    })
   })
 })

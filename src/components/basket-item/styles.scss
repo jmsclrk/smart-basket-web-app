@@ -1,0 +1,26 @@
+#bi-container {
+  align-items: left;
+  text-align: left;
+  padding: 4px 0;
+}
+
+.bi-price {
+  text-align: right;
+  align-items: right;
+  font-weight: bold;
+  display: block;
+  float:right;
+  padding-right: 5px;
+  font-size: 14px;
+}
+
+.bi-amount {
+  color: grey;
+  font-size: 12px;
+  padding-left: 90px;
+}
+
+.bi-info {
+  padding-left: 20px;
+  font-size: 16px;
+}
