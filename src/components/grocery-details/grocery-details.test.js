@@ -27,7 +27,7 @@ describe('GroceryDetails Component', () => {
     it('Should render a title with the grocery title and weight', () => {
       const title = findByDataTestAttr(component, 'grocery-title')
       expect(title.length).toBe(1)
-      expect(title.text()).toBe("Carrots (800 grams)")
+      expect(title.text()).toBe("Carrots")
     })
 
     it('Should render a grocery description', () => {

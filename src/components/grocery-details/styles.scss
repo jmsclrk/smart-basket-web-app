@@ -1,0 +1,42 @@
+#grocery-details-container {
+  border: solid 1px grey;
+  height: 100%;
+  padding: 15px 30px;
+  text-align: left;
+  border-radius: 10px;
+}
+
+.gd-title {
+  text-align: left;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+#gd-back-button {
+  display: inline-block;
+  float: right;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.gd-amount {
+  color: grey
+}
+
+.gd-desc {
+  font-style: italic;
+  font-size: 16px;
+}
+
+.gd-img-container {
+  align-self: center;
+  width: 100%;
+  height: 360px;
+  border: solid 1px grey;
+}
+
+.gd-addtobskt {
+  font-size: 15px;
+  font-weight: bold;
+}
