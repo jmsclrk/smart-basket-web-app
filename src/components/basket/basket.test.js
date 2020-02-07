@@ -1,5 +1,6 @@
 import React from "react";
 import Basket from ".";
+import BasketItem from './../basket-item'
 import { testSingleGroceryBasket, testMultiGroceryBasket } from './../config/test-groceries'
 import { shallow } from 'enzyme'
 import { findByDataTestAttr } from './../config/test-utils'
@@ -59,6 +60,11 @@ describe('Basket Component', () => {
     it('Should NOT render "Nothing added yet." message', () => {
       const message = findByDataTestAttr(component, 'bskt-empty-message')
       expect(message.length).toBe(0)
+    })
+
+    it('Should render BasketItem component', () => {
+      const item = component.find(BasketItem)
+      expect(item.length).toBe(1)
     })
   })
 })

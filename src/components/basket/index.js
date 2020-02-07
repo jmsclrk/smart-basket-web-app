@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.scss'
 import { connect } from 'react-redux'
+import BasketItem from './../basket-item'
 
 const Basket = (props) => {
   return (
@@ -10,8 +11,8 @@ const Basket = (props) => {
         <h6 data-test="bskt-empty-message">Nothing added yet.</h6>
       ) : (
         <React.Fragment>
-          { props.basketContents.map((i) => {
-            return <h3 key={String(i.id)}>1 x {i.name} ({i.amount} {i.measurement})</h3>
+          { props.basketContents.map((bi, index) => {
+            return <BasketItem key={index} basketItem={bi} />
           })}
         </React.Fragment>
       )}
